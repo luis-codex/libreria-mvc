@@ -1,10 +1,7 @@
 
 package com.mycompany.gestorlibreria;
 
-/**
- *
- * @author xavi9
- */
+
 
 public class Libro {
     private String titulo;
