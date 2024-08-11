@@ -1,0 +1,18 @@
+# Archivos y directorios generados por Maven
+target/
+
+# Archivos de configuración específicos del entorno
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Archivos de logs
+*.log
+
+# Archivos de compilación
+*.class
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db

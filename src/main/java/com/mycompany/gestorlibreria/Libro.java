@@ -1,8 +1,6 @@
 
 package com.mycompany.gestorlibreria;
 
-
-
 public class Libro {
     private String titulo;
     private String autor;
@@ -15,6 +13,7 @@ public class Libro {
         this.isbn = isbn;
         this.precio = precio;
     }
+
     // Getters y Setters
     public String getTitulo() {
         return titulo;
