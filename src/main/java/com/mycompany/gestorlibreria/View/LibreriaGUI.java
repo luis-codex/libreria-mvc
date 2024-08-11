@@ -1,20 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.mycompany.gestorlibreria;
+package com.mycompany.gestorlibreria.View;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+import com.mycompany.gestorlibreria.cotrollers.LibroController;
+import com.mycompany.gestorlibreria.models.Libro;
+
 public class LibreriaGUI extends javax.swing.JFrame {
-    private GestorLibreria gestor;
+    private LibroController gestor;
 
     public LibreriaGUI() {
-        gestor = new GestorLibreria();
+        gestor = new LibroController();
         initComponents();
     }
 

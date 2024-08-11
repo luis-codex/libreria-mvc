@@ -1,4 +1,4 @@
-package com.mycompany.gestorlibreria;
+package com.mycompany.gestorlibreria.models;
 
 public class Libro {
     private String titulo;
@@ -9,7 +9,6 @@ public class Libro {
     public Libro() {
     }
 
-    // Getters y Setters
     public String getTitulo() {
         return titulo;
     }
