@@ -1,7 +1,13 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.mycompany.gestorlibreria;
 
-
+/**
+ *
+ * @author xavi9
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -143,7 +149,11 @@ public class LibreriaGUI extends javax.swing.JFrame {
         String autor = autorField.getText();
         String isbn = isbnField.getText();
         double precio = Double.parseDouble(precioField.getText());
-        Libro libro = new Libro(titulo, autor, isbn, precio);
+        Libro libro = new Libro();
+        libro.setTitulo(titulo);
+        libro.setAutor(autor);
+        libro.setIsbn(isbn);
+        libro.setPrecio(precio);
         gestor.agregarLibro(libro);
         outputArea.setText("Libro agregado: " + libro.getTitulo());
     }
@@ -152,7 +162,8 @@ public class LibreriaGUI extends javax.swing.JFrame {
         List<Libro> libros = gestor.listarLibros();
         outputArea.setText("");
         for (Libro libro : libros) {
-            outputArea.append(libro.getTitulo() + " - " + libro.getAutor() + " - " + libro.getIsbn() + " - $" + libro.getPrecio() + "\n");
+            outputArea.append(libro.getTitulo() + " - " + libro.getAutor() + " - " + libro.getIsbn() + " - $"
+                    + libro.getPrecio() + "\n");
         }
     }
 
@@ -160,15 +171,16 @@ public class LibreriaGUI extends javax.swing.JFrame {
         String busqueda = buscarField.getText();
         List<Libro> libros = gestor.listarLibros();
         for (Libro libro : libros) {
-            if (libro.getTitulo().equalsIgnoreCase(busqueda) || 
-                libro.getAutor().equalsIgnoreCase(busqueda) || 
-                libro.getIsbn().equalsIgnoreCase(busqueda) || 
-                String.valueOf(libro.getPrecio()).equalsIgnoreCase(busqueda)) {
+            if (libro.getTitulo().equalsIgnoreCase(busqueda) ||
+                    libro.getAutor().equalsIgnoreCase(busqueda) ||
+                    libro.getIsbn().equalsIgnoreCase(busqueda) ||
+                    String.valueOf(libro.getPrecio()).equalsIgnoreCase(busqueda)) {
                 tituloField.setText(libro.getTitulo());
                 autorField.setText(libro.getAutor());
                 isbnField.setText(libro.getIsbn());
                 precioField.setText(String.valueOf(libro.getPrecio()));
-                outputArea.setText("Libro encontrado:\n" + libro.getTitulo() + " - " + libro.getAutor() + " - " + libro.getIsbn() + " - $" + libro.getPrecio());
+                outputArea.setText("Libro encontrado:\n" + libro.getTitulo() + " - " + libro.getAutor() + " - "
+                        + libro.getIsbn() + " - $" + libro.getPrecio());
                 return;
             }
         }
@@ -186,14 +198,16 @@ public class LibreriaGUI extends javax.swing.JFrame {
         String autor = autorField.getText();
         String isbn = isbnField.getText();
         double precio = Double.parseDouble(precioField.getText());
-        Libro libro = new Libro(titulo, autor, isbn, precio);
+        Libro libro = new Libro();
+        libro.setTitulo(titulo);
+        libro.setAutor(autor);
+        libro.setIsbn(isbn);
+        libro.setPrecio(precio);
         gestor.editarLibro(isbn, libro);
         outputArea.setText("Libro actualizado: " + libro.getTitulo());
     }
 
-
-
-    // Variables 
+    // Variables
     private javax.swing.JTextField tituloField;
     private javax.swing.JTextField autorField;
     private javax.swing.JTextField isbnField;
@@ -205,5 +219,4 @@ public class LibreriaGUI extends javax.swing.JFrame {
     private javax.swing.JButton searchButton;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton updateButton;
-    
 }

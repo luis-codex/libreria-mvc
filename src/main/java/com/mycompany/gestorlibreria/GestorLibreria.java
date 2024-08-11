@@ -1,8 +1,13 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
 
 package com.mycompany.gestorlibreria;
 
-
+/**
+ *
+ * @author xavi9
+ */
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
@@ -47,7 +52,12 @@ public class GestorLibreria {
         Document query = new Document("isbn", isbn);
         Document doc = collection.find(query).first();
         if (doc != null) {
-            return new Libro(doc.getString("titulo"), doc.getString("autor"), doc.getString("isbn"), doc.getDouble("precio"));
+            Libro libro = new Libro();
+            libro.setTitulo(doc.getString("titulo"));
+            libro.setAutor(doc.getString("autor"));
+            libro.setIsbn(doc.getString("isbn"));
+            libro.setPrecio(doc.getDouble("precio"));
+            return libro;
         }
         return null;
     }
@@ -55,7 +65,12 @@ public class GestorLibreria {
     public List<Libro> listarLibros() {
         List<Libro> libros = new ArrayList<>();
         for (Document doc : collection.find()) {
-            libros.add(new Libro(doc.getString("titulo"), doc.getString("autor"), doc.getString("isbn"), doc.getDouble("precio")));
+            Libro libro = new Libro();
+            libro.setTitulo(doc.getString("titulo"));
+            libro.setAutor(doc.getString("autor"));
+            libro.setIsbn(doc.getString("isbn"));
+            libro.setPrecio(doc.getDouble("precio"));
+            libros.add(libro);
         }
         return libros;
     }
